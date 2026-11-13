@@ -19,3 +19,8 @@ One line per concept, for a quick scan before revising. Details are in each less
 | `tool_use` / `tool_result` | The model's request to run a tool / your answer, matched by id | 3 |
 | Indirect prompt injection | Malicious instructions arriving through tool results | 3 |
 | Excessive agency | Giving a model more tool power than its task needs | 3 |
+| Agent | Model + tools + a loop that runs until the model stops asking for tools | 4 |
+| Agent loop | Call → if `tool_use`, run tools and send results → repeat | 4 |
+| Step limit | Your code's hard cap on model calls per task; the guarantee the loop ends | 4 |
+| Self-correction | The model reading an error result and retrying differently | 4 |
+| Confused deputy | An agent using *its* permissions for someone who shouldn't have them | 4 |
