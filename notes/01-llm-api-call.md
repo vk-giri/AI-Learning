@@ -147,16 +147,6 @@ for (const block of response.content) {
 - **Write shared setup once.** Code every program needs (load config, check the key, create the
   client) goes in one shared module that the others `import`, so a fix applies everywhere.
 
-### JavaScript used here
-
-| Syntax | Meaning |
-|---|---|
-| `import X from "pkg"` | Load code from a library (or another file) |
-| `await` | Pause until a slow operation (here, a network call) finishes. Without it you get a **Promise**, a placeholder for a result that isn't ready yet |
-| `{ apiKey, baseURL }` | Shorthand for `{ apiKey: apiKey, baseURL: baseURL }` |
-| `process.env.NAME` | Read an environment variable in Node |
-| `for (const x of list)` | Loop over every item in a list |
-
 ## Security takeaways
 
 1. **API keys are bearer secrets.** Leaked LLM keys are among the most common real incidents; bots

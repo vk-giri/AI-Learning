@@ -2,25 +2,18 @@
 // Run with:  node 03-tools.js
 //       or:  node 03-tools.js "your own question here"
 
-// Node's built-in crypto module, used by our hash_text tool.
 import { createHash } from "node:crypto";
 import { createClient, MODEL } from "./lib/client.js";
 import { logReply, logStats, logToolCall } from "./lib/log.js";
 
 const client = createClient();
 
-// ---------------------------------------------------------------------------
-// PART 1: The real functions. Ordinary JavaScript. The model never sees this code.
-// ---------------------------------------------------------------------------
 const COMMON_PORTS = {
   22: "SSH", 25: "SMTP", 53: "DNS", 80: "HTTP", 389: "LDAP",
   443: "HTTPS", 636: "LDAPS", 3306: "MySQL", 3389: "RDP", 5432: "PostgreSQL",
 };
 
-// Each function receives ONE object: the "input" the model filled in.
-// { port } pulls the "port" property out of that object.
 function lookupPort({ port }) {
-  // "??" means: if the left side is missing, use the right side instead.
   return COMMON_PORTS[port] ?? "unknown (not in our local table)";
 }
 
@@ -32,7 +25,6 @@ function hashText({ text, algorithm }) {
   return createHash(algorithm).update(text).digest("hex");
 }
 
-// Maps the tool NAME the model uses to the function we actually run.
 const TOOL_FUNCTIONS = {
   lookup_port: lookupPort,
   hash_text: hashText,
@@ -88,7 +80,6 @@ function runTool(name, input) {
 // ---------------------------------------------------------------------------
 // PART 4: The conversation: two calls to the model.
 // ---------------------------------------------------------------------------
-// process.argv holds the command-line words; [2] is the first word after "node 03-tools.js".
 const question =
   process.argv[2] ?? "What service runs on port 3389, and what is the sha256 hash of the word hello?";
 console.log("you>", question);

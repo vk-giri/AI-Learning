@@ -90,15 +90,6 @@ The model sees one big pile of text and **can't verify who wrote what**:
 | Context window | Max size of everything sent in one call |
 | Prompt injection | User text trying to override the developer's instructions |
 
-### JavaScript used here
-
-| Syntax | Meaning |
-|---|---|
-| `const messages = []` | Create an empty array (list) |
-| `messages.push(x)` | Add `x` to the end of the array |
-| `messages.length` | Number of items in the array |
-| `while (true) { ... break; }` | Repeat forever until `break` |
-
 ## Test yourself
 
 <details><summary>Where does the model's "memory" actually live?</summary>

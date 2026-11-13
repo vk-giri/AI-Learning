@@ -1,7 +1,6 @@
 // Lesson 2: a chat that "remembers", by resending the whole conversation each turn.
 // Run with:  node 02-chat.js      (type "exit" to quit)
 
-// Node's built-in module for reading what you type in the terminal.
 import readline from "node:readline/promises";
 import { createClient, MODEL } from "./lib/client.js";
 import { logReply, logStats } from "./lib/log.js";
@@ -14,7 +13,6 @@ const SYSTEM_PROMPT = "You are a concise security assistant. Keep answers under 
 // THE ENTIRE MEMORY of this chat. Just an array we keep adding to.
 const messages = [];
 
-// Set up the terminal input.
 const terminal = readline.createInterface({ input: process.stdin, output: process.stdout });
 
 // Loop forever: read your message, send everything, print the reply.

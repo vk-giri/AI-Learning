@@ -9,8 +9,7 @@ import { logReply, logStats } from "./lib/log.js";
 // The client knows how to talk to the API (key + address already filled in).
 const client = createClient();
 
-// Send the request. The object we pass IS the JSON body from Lesson 1.
-// "await" waits for the network round-trip to finish.
+// Send the request. The object we pass IS the JSON request body from Lesson 1.
 const response = await client.messages.create({
   model: MODEL,
   max_tokens: 1000,
