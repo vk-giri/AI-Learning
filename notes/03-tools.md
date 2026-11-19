@@ -256,6 +256,16 @@ serious AI security issues live here:
 | Dispatcher (`runTool`) | Your code: where the decision to actually run anything is made |
 
 
+## Try it
+
+Run `node 03-tools.js "your question"`.
+
+1. `node 03-tools.js "what runs on 5432 and 22?"`: two `[tool]` lines?
+2. `node 03-tools.js "what is the capital of France?"`: no tool, `end_turn` on the first call.
+3. `node 03-tools.js "sha512 hash of hello"`: the tool doesn't allow it. What does the model do?
+4. Change `lookup_port`'s `description` to "Returns the weather for a city." and ask about a port.
+5. Ask about port 9999 (not in the table), then remove `lookup_port` from `TOOLS` and ask again.
+
 ## Test yourself
 
 <details><summary>Does the model execute the tool's code?</summary>
