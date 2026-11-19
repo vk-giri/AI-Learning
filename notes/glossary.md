@@ -24,3 +24,10 @@ One line per concept, for a quick scan before revising. Details are in each less
 | Step limit | Your code's hard cap on model calls per task; the guarantee the loop ends | 4 |
 | Self-correction | The model reading an error result and retrying differently | 4 |
 | Confused deputy | An agent using *its* permissions for someone who shouldn't have them | 4 |
+| MCP | A standard protocol for connecting AI apps to external tools | 5 |
+| Host / MCP client / MCP server | The app with the agent loop / its connection to one server / the separate program exposing tools | 5 |
+| JSON-RPC | MCP's message format: requests and responses matched by `id` | 5 |
+| `initialize` / `tools/list` / `tools/call` | MCP handshake / tool discovery / tool execution | 5 |
+| Transport (stdio, Streamable HTTP) | How client and server exchange messages: child process vs web service | 5 |
+| Tool poisoning | Malicious instructions hidden in a tool's definition | 5 |
+| Rug pull | A server changing its tool definitions after you approved them | 5 |
